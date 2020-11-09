@@ -6,7 +6,7 @@ const employees = [
         role: "CEO",
         hireYear: "1928",
         employeeNumber: 1,
-        screenshot: "../public/img/mickeyMouse.png"
+        screenshot: "/images/mickeyMouse.png"
     },
     {
         firstName: "Minnie",
@@ -15,7 +15,7 @@ const employees = [
         role: "CFO",
         hireYear: "1928",
         employeeNumber: 2,
-        screenshot: "../public/img/minnieMouse.png"
+        screenshot: "/images/minnieMouse.png"
     },
     {
         firstName: "Pluto",
@@ -24,7 +24,7 @@ const employees = [
         role: "Minister of Happiness",
         hireYear: "1930",
         employeeNumber: 3,
-        screenshot: "../public/img/pluto.png"
+        screenshot: "/images/pluto.png"
     },
     {
         firstName: "Donald",
@@ -33,7 +33,7 @@ const employees = [
         role: "Ride Development",
         hireYear: "1934",
         employeeNumber: 4,
-        screenshot: "../public/img/donaldDuck.png"
+        screenshot: "/images/donaldDuck.png"
     },
     {
         firstName: "Goofy",
@@ -42,7 +42,7 @@ const employees = [
         role: "Live Show Development",
         hireYear: "1932",
         employeeNumber: 5,
-        screenshot: "../public/img/goofy.png"
+        screenshot: "/images/goofy.png"
     },
     {
         firstName: "Doc",
@@ -51,7 +51,7 @@ const employees = [
         role: "Mining",
         hireYear: "1937",
         employeeNumber: 6,
-        screenshot: "../public/img/docDwarf.png"
+        screenshot: "/images/docDwarf.png"
     },
     {
         firstName: "Oswald",
@@ -60,7 +60,7 @@ const employees = [
         role: "Emeritus Exec",
         hireYear: "1927",
         employeeNumber: 7,
-        screenshot: "../public/img/oswald.png"
+        screenshot: "/images/oswald.png"
     },
     {
         firstName: "Mulan",
@@ -69,7 +69,7 @@ const employees = [
         role: "Combat",
         hireYear: "1998",
         employeeNumber: 8,
-        screenshot: "../public/img/mulan.png"
+        screenshot: "/images/mulan.png"
     },
     {
         firstName: "Merida",
@@ -78,7 +78,7 @@ const employees = [
         role: "Combat",
         hireYear: "2012",
         employeeNumber: 9,
-        screenshot: "../public/img/merida.jpg"
+        screenshot: "/images/merida.jpg"
     },
     {
         firstName: "Dopey",
@@ -87,7 +87,7 @@ const employees = [
         role: "Silent Comedian",
         hireYear: "1937",
         employeeNumber: 10,
-        screenshot: "../public/img/dopey.jpg"
+        screenshot: "/images/dopey.jpg"
     }
 ];
 
