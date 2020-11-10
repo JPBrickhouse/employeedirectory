@@ -21,7 +21,7 @@ class App extends Component {
   state = {
     listOfEmployees: employees,
     firstFilterDropdown: firstFilter,
-    firstFilterSelected: "temporary"
+    firstFilterSelected: ""
   }
 
   // Using an arrow function because...
@@ -29,11 +29,15 @@ class App extends Component {
   // "this" will be a reference to the context it is in when it is finally called,
   // as opposed to what it is when you wrote it.
   // If you use an arrow function, it will keep the context it had when you wrote it.
+  // https://stackoverflow.com/questions/49600249/reactjs-cannot-read-property-setstate-of-undefined
   // (Therefore, the "this" this.setState will refer to the setState method that exists
   // in the overall App component, rather that "this" referring to the individual fucntion)
   firstFilterChange = event => {
     console.log(event.target.value)
     this.setState({ firstFilterSelected: event.target.value })
+  }
+
+  secondFilterChange = event => {
   }
 
   // The render method will be called each time an update happens
@@ -43,10 +47,10 @@ class App extends Component {
         <h1>Employee Directory!</h1>
 
         {/* First Filter */}
-        <p>Select Filter</p>
+        <p>Filter by</p>
         <select value={this.state.firstFilterSelected} onChange={this.firstFilterChange}>
-          
-          <option defaultValue={true} disabled={true}>Select Filter</option>
+
+          {/* Start off with a non selectable dropdown? */}
           
           {this.state.firstFilterDropdown.map(element => {
             return <DropdownOption option={element} key={element} />;
@@ -54,9 +58,10 @@ class App extends Component {
         </select>
 
         {/* Second Filter */}
-        <p>Selection</p>
+        <p>Select from that filter</p>
         <select>
-          <option defaultValue disabled="disabled">Selection</option>
+          {/* Start off with a non selectable dropdown? */}
+
           <DropdownOption option="Goodbye" />
         </select>
 
