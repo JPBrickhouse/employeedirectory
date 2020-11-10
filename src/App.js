@@ -1,50 +1,73 @@
-import React from "react";
+// Importing react and component
+import React, { Component } from "react";
+// Importing the employees.js file (which contains all the employees in the directory)
 import employees from "./employees"
-import EmployeeCard from "./components/FriendCard"
+// Importing the various components
+import EmployeeCard from "./components/EmployeeCard"
 import DropdownOption from "./components/DropdownOption"
 
-var character0 = employees[0]
-var character1 = employees[1]
 
 // Getting the keys of each object in the employees directory
-var keys = (Object.keys(employees[0]).filter(element => {
-  return element !== "screenshot" || element !== "employeeNumber"
-}))
-
-keys.forEach(element => {
-  console.log(element)
+// - Object.keys returns an array of the keys from the object employees[0]
+// - filter creates a new array with all the elements in an array that pass the test implemeneted
+// - The test in question returns true if the element is not "screenshot" or "employeeNumber"
+var firstFilter = (Object.keys(employees[0])).filter(element => {
+  return (element !== "screenshot" && element !== "employeeNumber")
 })
 
+// The function App has been converted to a class
+class App extends Component {
 
-function App() {
-  return (
-    <div>
-      <h1>Employee Directory!</h1>
+  state = {
+    listOfEmployees: employees,
+    firstFilterDropdown: firstFilter,
+    firstFilterSelected: "temporary"
+  }
 
-      <p>Select Filter</p>
-      <select>
-        <option defaultValue disabled="disabled">Select Filter</option>
-        <DropdownOption option="Hello" />
+  // Using an arrow function because...
+  // When you pass a function to another function (as a callback),
+  // "this" will be a reference to the context it is in when it is finally called,
+  // as opposed to what it is when you wrote it.
+  // If you use an arrow function, it will keep the context it had when you wrote it.
+  // (Therefore, the "this" this.setState will refer to the setState method that exists
+  // in the overall App component, rather that "this" referring to the individual fucntion)
+  firstFilterChange = event => {
+    console.log(event.target.value)
+    this.setState({ firstFilterSelected: event.target.value })
+  }
 
-        {/* {keys.forEach(arrayElement => {
-          <DropdownOption option={arrayElement} />
-        })}; */}
+  // The render method will be called each time an update happens
+  render() {
+    return (
+      <div>
+        <h1>Employee Directory!</h1>
 
-      </select>
+        {/* First Filter */}
+        <p>Select Filter</p>
+        <select value={this.state.firstFilterSelected} onChange={this.firstFilterChange}>
+          
+          <option defaultValue={true} disabled={true}>Select Filter</option>
+          
+          {this.state.firstFilterDropdown.map(element => {
+            return <DropdownOption option={element} key={element} />;
+          })}
+        </select>
 
-      <p>Selection</p>
-      <select>
-        <option defaultValue disabled="disabled">Selection</option>
-        <DropdownOption option="Goodbye" />
-      </select>
+        {/* Second Filter */}
+        <p>Selection</p>
+        <select>
+          <option defaultValue disabled="disabled">Selection</option>
+          <DropdownOption option="Goodbye" />
+        </select>
 
+        {/* Displaying all the employee cards */}
+        {this.state.listOfEmployees.map(employee => {
+          return <EmployeeCard employeeInfo={employee} key={employee.employeeNumber} />
+        })}
 
-
-      <EmployeeCard employeeInfo={character0} />
-      <EmployeeCard employeeInfo={character1} />
-
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
