@@ -10,13 +10,13 @@
 }
 
 .card > .img-container {
-  height: 60%;
+  height: auto;
   overflow: hidden;
   text-align: center;
   background:#6CADDC;
 }
 .card > .img-container > img {
-  width: 60%
+  width: 60%;
 }
 
 .card > .content {
