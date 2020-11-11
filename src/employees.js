@@ -64,7 +64,7 @@ const employees = [
     },
     {
         firstName: "Mulan",
-        lastName: "",
+        lastName: "Fa",
         department: "Princess",
         role: "Combat",
         hireYear: "1998",

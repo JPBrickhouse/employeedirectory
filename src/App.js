@@ -11,7 +11,7 @@ import DropdownOption from "./components/DropdownOption"
 // - Object.keys returns an array of the keys from the object employees[0]
 // - filter creates a new array with all the elements in an array that pass the test implemeneted
 // - The test in question returns true if the element is not "screenshot" or "employeeNumber"
-var firstFilter = (Object.keys(employees[0])).filter(element => {
+var firstFilterContent = (Object.keys(employees[0])).filter(element => {
   return (element !== "screenshot" && element !== "employeeNumber")
 })
 
@@ -20,8 +20,10 @@ class App extends Component {
 
   state = {
     listOfEmployees: employees,
-    firstFilterDropdown: firstFilter,
-    firstFilterSelected: ""
+    firstFilterDropdown: firstFilterContent,
+    firstFilterSelected: '',
+    secondFilterDropdown: [],
+    secondFilterSelect: ''
   }
 
   // Using an arrow function because...
@@ -33,11 +35,26 @@ class App extends Component {
   // (Therefore, the "this" this.setState will refer to the setState method that exists
   // in the overall App component, rather that "this" referring to the individual fucntion)
   firstFilterChange = event => {
-    console.log(event.target.value)
-    this.setState({ firstFilterSelected: event.target.value })
+    
+    // setState is asynchronous, so put the console.log in the callback; that way the console.log is executed after the setState is complete
+    // this.setState({ firstFilterSelected: event.target.value }, () => console.log(this.state.firstFilterSelected))
+
+    this.setState({ firstFilterSelected: event.target.value }, this.secondFilterContent)
   }
 
+  secondFilterContent = () => {
+    var dropdownContent = []
+
+    this.state.listOfEmployees.forEach(element => {
+      dropdownContent.push(element[this.state.firstFilterSelected])
+    })
+    
+    console.log(dropdownContent)
+  }
+
+
   secondFilterChange = event => {
+
   }
 
   // The render method will be called each time an update happens
@@ -51,7 +68,7 @@ class App extends Component {
         <select value={this.state.firstFilterSelected} onChange={this.firstFilterChange}>
 
           {/* Start off with a non selectable dropdown? */}
-          
+
           {this.state.firstFilterDropdown.map(element => {
             return <DropdownOption option={element} key={element} />;
           })}
