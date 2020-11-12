@@ -35,7 +35,6 @@ A dynamic React application, allowing users to parse through an entire employee 
     - Use the command line to locate the cloned repo and make it your current directory
     - Type `npm install` in the command line
     - This will install the necessary node module packages and dependencies
-    - Under the assumption that the user has MongoDB previously installed and/or running, no further installation is required
 
 ## USAGE
 - To run the application locally...
