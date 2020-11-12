@@ -16,6 +16,8 @@ var firstFilterContent = (Object.keys(employees[0])).filter(element => {
   return (element !== "screenshot" && element !== "employeeNumber")
 })
 
+firstFilterContent.sort()
+
 // The function App has been converted to a class component
 class App extends Component {
 
