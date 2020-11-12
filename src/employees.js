@@ -88,6 +88,24 @@ const employees = [
         hireYear: "1937",
         employeeNumber: 10,
         screenshot: "/images/dopey.jpg"
+    },
+    {
+        firstName: "Grumpy",
+        lastName: "The Dwarf",
+        department: "Operations",
+        role: "Curmudgeon",
+        hireYear: "1937",
+        employeeNumber: 11,
+        screenshot: "/images/grumpy.png"
+    },
+    {
+        firstName: "Belle",
+        lastName: "Beast",
+        department: "Princess",
+        role: "Librarian",
+        hireYear: "1991",
+        employeeNumber: 12,
+        screenshot: "/images/belle.jpg"
     }
 ];
 
